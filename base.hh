@@ -1,6 +1,5 @@
 #include"array.hh"
 
-
 #define DEBUG
 
 #ifdef DEBUG

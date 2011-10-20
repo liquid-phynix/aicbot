@@ -8,7 +8,6 @@
 #include"array.hh"
 #include"base.hh"
 
-
 using namespace std;
 
 
