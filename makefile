@@ -1,15 +1,27 @@
-CFLAGS=-O3
+CC=g++
+#CXXFLAGS=-std=c++0x -O3 -c
+CXXFLAGS=-std=c++0x -O3 -Wall -Wextra -c
+LDFLAGS=-O3
+EXE=MyBot
+SRC=wandering.cpp base.cpp ants.cpp dij.cpp helpers.cpp loc.cpp MyBot.cpp pos.cpp hungarian.cpp draw.cpp perturn.cpp food.cpp battle.cpp cluster.cpp
+HEADERS=ants.hh array.hh base.hh dij.hh hash.hh helpers.hh hungarian.hh loc.hh mask.hh pos.hh queue.hh
+OBJ=$(SRC:.cpp=.o)
 
-all: MyBot
+#CXXFLAGS+=-g -std=c++0x -Wall -Wextra -c
 
-base.o: base.cc base.hh array.hh
-	g++ $(CFLAGS) -c base.cc -o base.o
+all: $(SRC) $(EXE)
 
-MyBot.o: MyBot.cc
-	g++ $(CFLAGS) -c MyBot.cc -o MyBot.o
+$(EXE): $(OBJ)
+	$(CC) $(LDFLAGS) $(OBJ) -o $@
+.cpp.o: $(HEADERS)
+	$(CC) $(CXXFLAGS) $< -o $@
+clean: 
+	-rm -f ${EXECUTABLE} ${OBJECTS}
+	-rm *.ppm
+	-rm sub.zip
+rem:
+	-rm *.ppm
+sub:
+	zip sub.zip *.cpp *.hh
 
-MyBot: MyBot.o base.o
-	g++ $(CFLAGS) -o MyBot MyBot.o base.o
 
-clean:
-	(rm *.o; rm MyBot;)

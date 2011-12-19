@@ -1,5 +1,0 @@
-g++ -o MyBot MyBot.o base.o array.o
-base.o: In function `s_gameData::s_gameData(int, int)':
-base.cc:(.text._ZN10s_gameDataC2Eii[_ZN10s_gameDataC5Eii]+0x22): undefined reference to `array<int>::array(int, int)'
-collect2: ld returned 1 exit status
-make: *** [MyBot] Error 1
